@@ -1,3 +1,29 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signup-form {
+	margin-left: 330px;
+	padding-top: 20px;
+}
+
+input {
+	margin-left: 10px;
+}
+
+#user_username {
+	margin-left: 144px;
+}
+
+#user_email {
+	margin-left: 147px;
+}
+
+#user_password {
+	margin-left: 113px;
+}
+
+#signup-btn {
+	margin-top: 20px;
+	margin-left: 200px;
+}

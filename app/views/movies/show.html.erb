@@ -15,21 +15,36 @@
 	</div>
 </div>
 
-<p id="notice"><%= notice %></p>
+
 <div class="col-lg-10 main">
 	
 	<div class="row comment">
 	<% @comments.each do |comment| %>
 		<div class="row author">
-			<span><strong><%= comment.username %> - </strong></span>
+			<span><strong><%= comment.user.username %> - </strong></span>
 			<span><em><%= comment.created_at %></em></span>
 		</div>
 
 		<div class="row comment-content">
 			<p><%= comment.content %></p>
+			<% if comment.user.id == @current_user.id %>
+				<%= button_to 'Delete comment', {:controller => 'comments', :action => "destroy", :id => comment.id, :movie_id => @movie.id}, :method => :delete %>
+			<% end %>
 		</div>
 		<% end %>
 	</div>
+
+	<div class="flash-message">
+    <% flash.each do |key, msg| %>
+  <%= content_tag :div, msg, id: key %>
+<% end %>
+  </div>
+
+  	<div class="row no-comments">
+  		<% if @comments.empty? %>
+  			<h4>Nobody is talking about this film yet. Why don't you start off?</h4>
+  		<% end %>
+  	</div>
 
 	<div class="row comment-form">
 		<h3>Contribute to the discussion:</h3>
@@ -47,15 +62,11 @@
    			 </div>
   			<% end %>
 
- 			 <div class="field">
-   				 <%= f.label :username %>
-   				 <%= f.text_field :username %>
-  			</div>
-
-  			<div class="field">
-    			<%= f.label :content %>
-    			<%= f.text_area :content %>
-  				</div>
+  				<div class="field">
+          <%= f.label :content, 'What did you think of the film?' %>
+          <%= f.text_area :content %>
+          </div>
+        <input type="hidden" name="user_id" value=<%= @current_user.id %>>
 
 
   				<div class="actions">

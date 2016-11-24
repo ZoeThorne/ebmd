@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by(id: params[:id])
     @comment = Comment.new
       unless current_user
-        redirect_to root_url
+        redirect_to '/login'
       end
     
   end

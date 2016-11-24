@@ -7,6 +7,7 @@ end
 
   def index
     @users = User.all
+    @name = current_user ? @current_user.username : "Movie Fan"
   end
 
   # renders the signup form

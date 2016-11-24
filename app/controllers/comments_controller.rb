@@ -29,8 +29,9 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     movie = Movie.find_by(id: params[:movie_id])
-    comment = movie.comments.new(comment_params)
-      if comment.save
+    comment= Comment.create(content: params[:comment][:content],movie:movie,user: current_user)
+
+      if comment
          redirect_to movie_path(movie)
       else
         render plain: "The comment has not been saved"
@@ -56,7 +57,8 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      movie = Movie.find_by(id: params[:movie_id])
+      format.html { redirect_to movie_path(movie), notice: 'Comment was successfully removed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +71,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:username, :content)
+      params.require(:comment).permit(:user_id, :movie_id, :content)
     end
 end

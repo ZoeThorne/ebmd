@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	has_many :comments
 
 # attr_accessor :password, :password_confirmation
 			has_secure_password 

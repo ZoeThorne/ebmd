@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-root to: 'users#home'
+root to: 'movies#index'
   resources :movies do
  	resources :comments
 	end
