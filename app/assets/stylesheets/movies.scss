@@ -2,6 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Index Page */
+
+.movies-table {
+	background-color: #1e1f21;
+	padding: 10px;
+	width: 90%;
+	margin-left: 60px;
+	margin-right:20px;
+	text-align: center;
+}
+
+.movie-entry {
+	background-color: #cecdab;
+	padding: 20px;
+	margin: 5px 10px 5px 10px;
+}
+
+.blank-row {
+	background-color: #1e1f21;
+	height: 10px;
+}
+
+.movie-reel-side {
+	background-color: #1e1f21;
+	width: 70px;
+}
+
+.reel {
+	margin-bottom:	20px;
+	
+}
+
+.poster {
+	padding: 20px;
+
+}
+
+.movie-poster{
+	height: 100px;
+	-webkit-transition: height 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: height 0.5s;
+}
+
+.movie-poster:hover {
+	height: 200px;
+}
+
+.movie-title {
+	width: 250px;
+	font-size: 20px;
+
+}
+
+.synopsis {
+	font-size: 14px;
+	padding: 15px;
+}
+
+/* Show Page */
+
 /* Sidebar */
 
 .sidebar {

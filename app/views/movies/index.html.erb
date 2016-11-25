@@ -1,27 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>All Movies</h1>
+<h1>Recently Added Movies</h1>
 
-<table>
+<table class="movies-table">
   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Poster</th>
-      <th>Year</th>
-      <th>Synopsis</th>
-      <th colspan="3"></th>
-    </tr>
   </thead>
 
   <tbody>
     <% @movies.each do |movie| %>
-      <tr>
-        <td><%= link_to "#{movie.title}", movie %></td>
-        <td><img src="<%= movie.poster %>" style="height:50px"></td>
-        <td><%= movie.year %></td>
-        <td><%= movie.synopsis %></td>
+      <tr class="blank-row"></tr>
+      <tr class="movie-entry">
+        <td class="movie-reel-side"><%= image_tag("white_square.png", width:"20px", height:"15px", class:"reel") %>
+          <br><%= image_tag("white_square.png", width:"20px", height:"15px", class:"reel") %>
+          <br><%= image_tag("white_square.png", width:"20px", height:"15px", class:"reel") %>
+          <br><%= image_tag("white_square.png", width:"20px", height:"15px", class:"reel") %>
+          <br>
+        </td>
+        <td class="poster">
+        <%= link_to movie do %>
+          <img src="<%= movie.poster %>" class="movie-poster">
+        <% end %>
+        </td>
+        <td class="movie-title"><%= link_to "#{movie.title}", movie %>
+            <br><br><%= movie.year %>
+        </td>
+        <td class="synopsis"><%= movie.synopsis %></td>
+        <td class="movie-reel-side"><%= image_tag("white_square.png", width:"20px", height:"15px", class:"reel") %>
+          <br><%= image_tag("white_square.png", width:"20px", height:"15px", class:"reel") %>
+          <br><%= image_tag("white_square.png", width:"20px", height:"15px", class:"reel") %>
+          <br><%= image_tag("white_square.png", width:"20px", height:"15px", class:"reel") %>
+          <br></td>
       </tr>
     <% end %>
+          <tr class="blank-row"></tr>
   </tbody>
 </table>
 
